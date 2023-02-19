@@ -3,19 +3,30 @@
 <head>
     <title>Tester</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="static/main.js"></script>
+    <script src="static/main.js"></script>
+    <link href="static/style.css"></link>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8">
 </head>
 
 <body>
+    <h1>Website Prototyper</h1>
     <form>
-        <textarea id="prompt_input" name="prompt_input" rows="15" cols="40"></textarea>
+        <textarea id="prompt_input" name="prompt_input" rows="15" cols="100"></textarea>
+        <br><br>
         <button type="button" id="submit_button">Submit</button>
     </form>
     <div id="response"></div>
     <div id="sidebar"></div>
     <div id="responseHtml"></div>
 
+  <div>
+    <input type="text" id="post-input">
+    <button id="add-post-btn">Save</button>
+    <ul id="post-list"></ul>
+</div>
+  
+    <script src="static/post.js"></script>
+  
 </body>
 
 
