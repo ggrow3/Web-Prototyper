@@ -11,9 +11,10 @@ openai.api_key = os.environ['OPENAI_TOKEN']
 def index():
   return render_template('index.html')
 
-@app.route('/post')
-def post():
-  return render_template('post.html')
+
+@app.route('/website-prototype')
+def websiteprototype():
+  return  render_template('website-prototype.html')
 
 
 @app.route('/gpt3_request', methods=['POST'])

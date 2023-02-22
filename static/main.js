@@ -2,8 +2,9 @@
        
         let parser = new DOMParser();
 
-        htmlString = htmlString.replace(/\n/g, '');
-        let doc = parser.parseFromString(htmlString, "text/html");
+        let htmlFormatted = htmlString.replace(/\n/g, '');
+        htmlFormatted = htmlFormatted.replace(/\/\*[\s\S]*?\*\/|\/\/.*/g, '');
+        let doc = parser.parseFromString(htmlFormatted, "text/html");
 
         let body = doc.querySelector("body").innerHTML;
 
@@ -38,6 +39,7 @@
           }
         }
 
+        document.getElementById("prompt_output").value = htmlString;
         document.getElementById("responseHtml").innerHTML = "<h2>Website Prototype</h2>";
         document.getElementById("responseHtml").appendChild(container);
     

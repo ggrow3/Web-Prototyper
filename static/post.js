@@ -45,7 +45,18 @@ dbPromise.onsuccess = (event) => {
       // Add each post to the post list
       for (const post of posts) {
         const listItem = document.createElement("li");
-        listItem.innerText = post.text;
+        listItem.classList.add("my-li-class"); 
+  
+        let link = document.createElement('a');
+        link.href = "https://web-prototyper.kevron.repl.co/website-prototype?id=" + post.id;
+        link.text = post.text.substring(0,10);
+        // Append the link to the div
+        listItem.appendChild(link);
+        
+        listItem.addEventListener('click', function() {
+          // Do something when the element is clicked
+          alert('Item clicked!');
+        });
         postList.appendChild(listItem);
       }
     };
@@ -57,7 +68,7 @@ dbPromise.onsuccess = (event) => {
   // Add event listener for the "Add Post" button
   const addPostBtn = document.getElementById("add-post-btn");
   addPostBtn.addEventListener("click", () => {
-    const postInput = document.getElementById("post-input");
+    const postInput = document.getElementById("prompt_output");
     const postText = postInput.value;
     addPost(postText);
     // Clear the post input
@@ -67,3 +78,5 @@ dbPromise.onsuccess = (event) => {
   // Initial refresh of the post list
   refreshPosts();
 };
+
+
