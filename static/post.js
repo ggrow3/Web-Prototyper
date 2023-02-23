@@ -17,10 +17,10 @@ dbPromise.onsuccess = (event) => {
   const db = event.target.result;
   
   // Add a new post to the database
-  const addPost = (text) => {
+  const addPost = (post) => {
     const transaction = db.transaction("posts", "readwrite");
     const objectStore = transaction.objectStore("posts");
-    const post = { text: text };
+ 
     const request = objectStore.add(post);
     request.onsuccess = () => {
       console.log("Post added to database");
@@ -49,13 +49,22 @@ dbPromise.onsuccess = (event) => {
   
         let link = document.createElement('a');
         link.href = "https://web-prototyper.kevron.repl.co/website-prototype?id=" + post.id;
-        link.text = post.text.substring(0,10);
+        link.text = post.name.substring(0,10);
         // Append the link to the div
         listItem.appendChild(link);
+
+        listButton = document.createElement("button");
+        listButton.classList.add("list-button");
+        listButton.textContent = "View Code";
+        listItem.appendChild(listButton);
         
-        listItem.addEventListener('click', function() {
+        listButton.addEventListener('click', function() {
           // Do something when the element is clicked
-          alert('Item clicked!');
+          console.log("Clicked on post");
+
+          document.getElementById("prompt_input").value = post.input;
+          document.getElementById("prompt_output").value = post.output;
+          
         });
         postList.appendChild(listItem);
       }
@@ -68,11 +77,14 @@ dbPromise.onsuccess = (event) => {
   // Add event listener for the "Add Post" button
   const addPostBtn = document.getElementById("add-post-btn");
   addPostBtn.addEventListener("click", () => {
-    const postInput = document.getElementById("prompt_output");
-    const postText = postInput.value;
-    addPost(postText);
+
+    const post = {
+      input: document.getElementById("prompt_input").value,
+      name: document.getElementById("name").value,
+      output: document.getElementById("prompt_output").value
+    };
+    addPost(post);
     // Clear the post input
-    postInput.value = "";
   });
   
   // Initial refresh of the post list

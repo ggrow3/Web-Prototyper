@@ -30,7 +30,7 @@ dbPromise.onsuccess = (event) => {
       const post = request.result;
         
         document.open();
-        document.write(post.text);
+        document.write(post.output);
         document.close();
 
     };
