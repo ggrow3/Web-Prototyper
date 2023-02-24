@@ -1,11 +1,15 @@
 <html lang="en">
 
 <head>
-    <title>Website Prototyper</title>
-   
+    <title>GPT-3 Website Creator</title>
+   <script
+  src="https://code.jquery.com/jquery-3.6.3.min.js"
+  integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU="
+  crossorigin="anonymous"></script>
     <script src="static/main.js"></script>
     <link rel="stylesheet" href="static/style.css">
-   
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8">
 </head>
 
@@ -20,28 +24,27 @@
    
     <h3>Prompt</h3>
     <div>
-       <form>
-          <textarea id="prompt_input" name="prompt_input" rows="15" cols="400"></textarea>
-          <br><br>
-          <button type="button" id="submit_button">Create</button>
-      </form>
-      </div>
-    <div id="left-menu" class="first">
-     
-      <h3>HTML</h3> <textarea id="prompt_output" name="prompt_output" rows="15" cols="200">
+       <form class="form">
+          <textarea class="form-control" id="prompt_input" name="prompt_input" rows="4" cols="400" required="true"></textarea>
+         
+          <button type="button" id="submit_button" class="btn btn-primary">Generate HTML</button>
+             <h3>HTML</h3> <textarea id="prompt_output" name="prompt_output" rows="40" cols="200" required="true">
    </textarea>
      
    
-      <input id="name" type="text" name="post_input" placeholder="Name">
-       <button id="add-post-btn">Save</button>
+      <h3>Name Site</h3><input id="name" type="text" name="post_input" class="form-control" placeholder="Name" required="true">
+       <button id="add-post-btn" class="btn btn-primary">Save Site</button>
+         <h3>Saved Sites</h3>
     <ul id="post-list"></ul>
-    </div>
+      </form>
+      </div>
+ 
+     
+  
+  
    
   </div>
-  <br>
-  <br>
- <div id="responseHtml"></div>  
-   
+  
 
  
   

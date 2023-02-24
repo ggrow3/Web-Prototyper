@@ -40,8 +40,7 @@
         }
 
         document.getElementById("prompt_output").value = htmlString;
-        document.getElementById("responseHtml").innerHTML = "<h2>Website Prototype</h2>";
-        document.getElementById("responseHtml").appendChild(container);
+    
     
       }
 
@@ -50,7 +49,7 @@
         let submitButton = document.getElementById("submit_button");
         submitButton.addEventListener("click", function () {
             let promptInput = document.getElementById("prompt_input").value;
-           
+           document.getElementById("name").value = "";
             let request = new XMLHttpRequest();
             request.open("POST", "/gpt3_request", true);
             request.setRequestHeader("Content-Type", "application/json");
