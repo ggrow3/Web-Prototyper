@@ -14,23 +14,25 @@ def index():
 
 @app.route('/website-prototype')
 def websiteprototype():
-  return  render_template('website-prototype.html')
+  return render_template('website-prototype.html')
 
 
 @app.route('/gpt3_request', methods=['POST'])
 def gpt3_request():
   data = request.get_json()
   prompt = data['prompt']
-  completions = openai.Completion.create(
-    engine="text-davinci-002",
-    prompt=prompt,
+  completions = openai.ChatCompletion.create(
+    model="gpt-3.5-turbo",
+    messages= [
+          {"role": "user", "content": prompt}
+    ],
     max_tokens=4000,
     n=1,
     stop=None,
     temperature=0.5,
   )
 
-  message = completions.choices[0].text
+  message = completions['choices'][0]['message']['content']
   print(message)
 
   return jsonify({'message': message})

@@ -110,3 +110,15 @@ textarea {
   margin: 0 auto;
 }
 
+#prompt_output {
+  position: relative;
+  z-index: 1;
+}
+
+#loading-gif {
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+} 

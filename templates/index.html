@@ -17,7 +17,7 @@
  
 
   
-    <h1 class="center">Website Prototyper</h1>
+    <h1 class="center">GPT-3 Website Creator</h1>
 
 
   <div id="container">
@@ -28,13 +28,15 @@
           <textarea class="form-control" id="prompt_input" name="prompt_input" rows="4" cols="400" required="true"></textarea>
          
           <button type="button" id="submit_button" class="btn btn-primary">Generate HTML</button>
-             <h3>HTML</h3> <textarea id="prompt_output" name="prompt_output" rows="40" cols="200" required="true">
+             <h3>HTML</h3>
+         <div id="html_area">
+         <textarea id="prompt_output" name="prompt_output" rows="40" cols="200" required="true">
    </textarea>
-     
+     </div>
    
       <h3>Name Site</h3><input id="name" type="text" name="post_input" class="form-control" placeholder="Name" required="true">
        <button id="add-post-btn" class="btn btn-primary">Save Site</button>
-         <h3>Saved Sites</h3>
+         <h3>View Sites</h3>
     <ul id="post-list"></ul>
       </form>
       </div>

@@ -53,10 +53,22 @@
             let request = new XMLHttpRequest();
             request.open("POST", "/gpt3_request", true);
             request.setRequestHeader("Content-Type", "application/json");
+            html_area.value = promptInput;
+            
+            let loadingGif = document.createElement("img");
+            loadingGif.src = "static/Loading_icon.gif";
+            loadingGif.id = "loading-gif";
+
+            let prompt_output = document.getElementById("prompt_output");
+            prompt_output.parentNode.insertBefore(loadingGif, prompt_output.nextSibling);
+
+          
             request.onload = function () {
                 if (request.status >= 200 && request.status < 400) {
                     parseHTML(JSON.parse(request.response).message);
                 }
+                // Process form data here
+               prompt_output.parentNode.removeChild(loadingGif);
             };
             request.send(JSON.stringify({ prompt: promptInput }));
         });
