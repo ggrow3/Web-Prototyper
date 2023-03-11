@@ -21,18 +21,16 @@ def websiteprototype():
 def gpt3_request():
   data = request.get_json()
   prompt = data['prompt']
-  completions = openai.ChatCompletion.create(
-    model="gpt-3.5-turbo",
-    messages= [
-          {"role": "user", "content": prompt}
-    ],
+  completions = openai.Completion.create(
+    model="text-davinci-003",
+    prompt=prompt,
     max_tokens=4000,
     n=1,
     stop=None,
     temperature=0.5,
   )
 
-  message = completions['choices'][0]['message']['content']
+  message = completions['choices'][0]['text']
   print(message)
 
   return jsonify({'message': message})
